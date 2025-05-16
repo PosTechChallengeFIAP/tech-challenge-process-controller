@@ -1,1 +1,3 @@
 # QueueService
+
+MicroService de Queue.
