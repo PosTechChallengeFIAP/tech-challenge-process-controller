@@ -66,7 +66,7 @@ public class QueueController {
     public List<Queue> findAllPendingQueue(){ return  this.findNotFinishedItemsUseCase.execute();}
 
     @PatchMapping("/queue/{queueItemId}")
-    @Operation(summary = "Update Queue record status", description = "This endpoint is used to update an item queue", tags = {
+    @Operation(summary = "Update Queue record status", description = "This endpoint is used to update an item queue status", tags = {
             "Queue" }, responses = {
             @ApiResponse(description = "Success", responseCode = "200", content = {
                     @Content(schema = @Schema(implementation = Queue.class))
