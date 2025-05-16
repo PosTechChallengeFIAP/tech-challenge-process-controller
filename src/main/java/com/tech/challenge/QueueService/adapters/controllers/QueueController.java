@@ -92,6 +92,15 @@ public class QueueController {
     }
 
     @PostMapping("/queue")
+    @Operation(summary = "Create Queue record", description = "This endpoint is used to create an item queue", tags = {
+            "Queue" }, responses = {
+            @ApiResponse(description = "Success", responseCode = "200", content = {
+                    @Content(schema = @Schema(implementation = Queue.class))
+            }),
+            @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
+            @ApiResponse(description = "Unauthorized Access", responseCode = "401", content = @Content),
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
+    })
     public ResponseEntity createQueue(@RequestBody Queue queue){
 
         try{
