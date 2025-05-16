@@ -66,7 +66,7 @@ public class QueueController {
     public List<Queue> findAllPendingQueue(){ return  this.findNotFinishedItemsUseCase.execute();}
 
     @PatchMapping("/queue/{queueItemId}")
-    @Operation(summary = "Update Queue record status", description = "This endpoint is used to update an item queue", tags = {
+    @Operation(summary = "Update Queue record status", description = "This endpoint is used to update an item queue status", tags = {
             "Queue" }, responses = {
             @ApiResponse(description = "Success", responseCode = "200", content = {
                     @Content(schema = @Schema(implementation = Queue.class))
@@ -75,10 +75,10 @@ public class QueueController {
             @ApiResponse(description = "Unauthorized Access", responseCode = "401", content = @Content),
             @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
     })
-    public ResponseEntity updateQueue(@PathVariable Integer queueId, @RequestBody Queue queue){
+    public ResponseEntity updateQueue(@PathVariable Integer queueItemId, @RequestBody Queue queue){
 
         try{
-            UpdateQueueUseCaseRequest queueRequest = new UpdateQueueUseCaseRequest(queueId,queue.getStatus());
+            UpdateQueueUseCaseRequest queueRequest = new UpdateQueueUseCaseRequest(queueItemId,queue.getStatus());
             Queue updatedQueue = updateQueueUseCase.execute(queueRequest);
             return ResponseEntity.status(HttpStatus.OK).body(updatedQueue);
 
