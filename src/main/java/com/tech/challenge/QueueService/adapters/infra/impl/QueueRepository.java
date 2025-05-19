@@ -13,7 +13,7 @@ import java.util.Optional;
 public class QueueRepository implements IQueueRepository {
 
     @Autowired
-    private QueueRepositoryJPA queueRepositoryJPA;
+    public QueueRepositoryJPA queueRepositoryJPA;
 
     @Override
     public Optional<Queue> findById(Integer id) {
