@@ -69,6 +69,12 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.13</version> <!-- ou versão mais recente da linha 4.x -->
+		</dependency>
+
 	</dependencies>
 
 	<build>
